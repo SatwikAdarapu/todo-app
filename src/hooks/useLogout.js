@@ -1,41 +1,55 @@
-import { useEffect, useState } from 'react'
-import { projectAuth } from '../firebase/config'
-import { useAuthContext } from './useAuthContext'
+import { useEffect, useState } from 'react';
+import { getAuth, signOut } from 'firebase/auth';
+import { doc, updateDoc } from 'firebase/firestore';
+import { useAuthContext } from './useAuthContext';
+import { projectFirestore } from '../firebase/config';
+import { useNavigate } from 'react-router-dom';
 
 export const useLogout = () => {
-    const [isCancelled, setIsCancelled] = useState(false)
-    const [error, setError] = useState(null)
-    const [isPending, setIsPending] = useState(false)
-    const { dispatch } = useAuthContext()
+    const [isCancelled, setIsCancelled] = useState(false);
+    const [error, setError] = useState(null);
+    const [isPending, setIsPending] = useState(false);
+    const { dispatch, user } = useAuthContext();
+    const navigate = useNavigate();
+
+    const auth = getAuth();
 
     const logout = async () => {
-        setError(null)
-        setIsPending(true)
+        setError(null);
+        setIsPending(true);
 
         try {
-            // sign the user out
-            await projectAuth.signOut()
+            if (user) {
+                // Update Firestore user document to set `online` to false
+                const userRef = doc(projectFirestore, 'users', user.uid);
+                await updateDoc(userRef, { online: false });
+            }
 
-            // dispatch logout action
-            dispatch({ type: 'LOGOUT' })
+            // Sign the user out
+            await signOut(auth);
 
-            // update state
+            // Dispatch logout action to update context
+            dispatch({ type: 'LOGOUT' });
+
+            // Navigate to login page
+            navigate('/login');
+
+            // Update state
             if (!isCancelled) {
-                setIsPending(false)
-                setError(null)
+                setIsPending(false);
+                setError(null);
+            }
+        } catch (err) {
+            if (!isCancelled) {
+                setError(err.message);
+                setIsPending(false);
             }
         }
-        catch (err) {
-            if (!isCancelled) {
-                setError(err.message)
-                setIsPending(false)
-            }
-        }
-    }
+    };
 
     useEffect(() => {
-        return () => setIsCancelled(true)
-    }, [])
+        return () => setIsCancelled(true);
+    }, []);
 
-    return { logout, error, isPending }
-}
+    return { logout, error, isPending };
+};

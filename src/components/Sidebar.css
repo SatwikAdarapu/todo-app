@@ -1,0 +1,92 @@
+.sidebar {
+    width: 250px;
+    min-width: 200px;
+    background: rgb(221, 182, 182);
+    /* White background */
+    color: rgb(0, 0, 0);
+    /* Black text color */
+    box-sizing: border-box;
+    position: fixed;
+    /* Fixed position to keep it on the left */
+    top: 50px;
+    /* Adjust this value according to the navbar height */
+    left: 0;
+    /* Aligns the sidebar completely to the left */
+    min-height: calc(100vh - 50px);
+    /* Full height minus the height of the navbar */
+    border-right: 2px solid black;
+    /* Black border on the right */
+    transition: background-color 0.3s ease;
+    /* Smooth background transition */
+}
+
+
+.sidebar-content {
+    width: inherit;
+    position: relative;
+    /* Position content relative to the sidebar */
+}
+
+.sidebar .user {
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 40px 30px;
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.sidebar .links {
+    margin-top: 20px;
+    /* Adjust margin to fit below the user section */
+    margin-left: 20px;
+    padding: 0;
+    /* Ensure padding is removed */
+    list-style: none;
+    /* Remove bullet points */
+}
+
+.sidebar .links ul {
+    padding: 0;
+    /* Remove padding for nested lists if needed */
+    margin: 0;
+    /* Remove margin for nested lists if needed */
+    list-style: none;
+    /* Ensure nested lists also have no bullets */
+}
+
+.sidebar .links li {
+    margin-top: 10px;
+}
+
+.sidebar .links a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    /* Black text color */
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transitions */
+}
+
+.sidebar .links a:hover {
+    background-color: #dcdcdc;
+    /* Light gray background on hover */
+    color: #000000;
+    /* Darker text color on hover */
+}
+
+.sidebar .links a.active {
+    color: #000000;
+    background: var(--bg-color);
+    /* Define var(--bg-color) if not already defined */
+    border-radius: 20px 0 0 20px;
+    font-weight: bold;
+}
+
+.sidebar .links a.active:hover {
+    background-color: #cfcfcf;
+    /* Slightly darker gray on hover for active links */
+}

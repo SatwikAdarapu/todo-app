@@ -4,8 +4,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(33, 33, 47, 0.87);
+  /* Darker text color */
+  background-color: #ffffff;
+  /* Set default background color to white */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,6 +31,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #ffffff;
+  /* Ensure body background is white */
+  color: #213547;
+  /* Ensure text color is darker for better contrast */
 }
 
 h1 {
@@ -44,6 +50,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -69,5 +76,41 @@ button:focus-visible {
 
   button {
     background-color: #f9f9f9;
+    color: #213547;
+    /* Ensure button text is visible */
   }
+}
+
+.error {
+  color: red;
+  background: pink;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+/* Additional input field styling */
+input,
+textarea {
+  background-color: #ffffff;
+  /* Ensure inputs have white background */
+  color: #213547;
+  /* Ensure text in inputs is visible */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+  /* Lighter color for placeholders */
+}
+
+input:focus,
+textarea:focus {
+  border-color: #646cff;
+  /* Add focus border color for inputs */
+  outline: none;
 }

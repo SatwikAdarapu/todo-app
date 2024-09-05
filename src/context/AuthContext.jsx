@@ -1,4 +1,4 @@
-import {  createContext,useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { projectauth } from "../firebase/config";
 
 export const AuthContext = createContext()
@@ -6,11 +6,11 @@ export const AuthContext = createContext()
 export const authReducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
-            return {...state, user: action.payload}
+            return { ...state, user: action.payload }
         case 'LOGOUT':
-            return{...state, user:null}
+            return { ...state, user: null }
         case 'AUTH_IS_READY':
-            return {...state, user: action.payload, authIsReady: true}
+            return { ...state, user: action.payload, authIsReady: true }
         default:
             return state
     }

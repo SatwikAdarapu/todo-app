@@ -1,0 +1,74 @@
+.auth-form {
+    max-width: 400px;
+    /* Set a reasonable maximum width */
+    margin: 60px auto;
+    /* Center the form horizontally and add vertical spacing */
+    padding: 20px;
+    /* Add padding inside the form */
+    border: 1px solid #ddd;
+    /* Light border for subtle separation */
+    border-radius: 8px;
+    /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
+    /* Subtle shadow for depth */
+    background: #ffffff;
+    /* White background for a clean look */
+    color: #333;
+    /* Dark text color for readability */
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    /* Space below the heading */
+    font-size: 1.5rem;
+    /* Larger font size for the heading */
+    text-align: center;
+    /* Center the heading */
+}
+
+.auth-form label {
+    display: flex;
+    flex-direction: column;
+    /* Stack label text and input vertically */
+    margin-bottom: 20px;
+    /* Space between form fields */
+}
+
+.auth-form label span {
+    font-weight: bold;
+    /* Bold label text for emphasis */
+    margin-bottom: 8px;
+    font-style:inherit;
+    /* Space below the label text */
+   background: #ffffff;
+}
+
+
+
+
+
+.auth-form button.btn {
+    width: 50%;
+    /* Full width for the button */
+    padding: 5px ;
+    /* Padding inside the button */
+    border: none;
+    /* Remove default border */
+    border-radius: 4px;
+    /* Rounded corners for the button */
+    background: #7c93abb9;
+    /* Primary color background */
+    color: #000000;
+    /* White text color */
+    font-size: 1rem;
+    /* Font size for the button text */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color */
+}
+
+.auth-form button.btn:hover {
+    background: #c1d1e2;
+    /* Darker shade for hover effect */
+}
